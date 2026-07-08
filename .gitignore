@@ -1,31 +1,22 @@
 # =============================================================================
-# 🛑 PASTAS INDESEJADAS (Adicione aqui o que NÃO quer no GitHub)
+# 🦀 CONFIGURAÇÕES DO RUST
 # =============================================================================
-00-modulo_app/
-01-modulos_app/
-02-modulos_app/
-03-modulos_app/
-05-modulo_app/
-usar_validador/
-app_clientes_console/
-.vscode/
-
-# =============================================================================
-# 🦀 CONFIGURAÇÕES PADRÃO DO RUST (Toptal/Official)
-# =============================================================================
-# Ignora as pastas de compilação pesadas do Rust em qualquer subpasta
-**/target/
+# Ignora a pasta de compilação (gerada pelo cargo build) que é extremamente pesada
 target/
 debug/
+**/target/
 
-# Arquivos de backup do rustfmt e dados de debug do Windows
+# Ignora arquivos de backup gerados pelo formatador do Rust
 **/*.rs.bk
+
+# Ignora arquivos de debug do Windows/Compilador
 *.pdb
 *.stackdump
 
 # =============================================================================
-# 💻 SISTEMAS OPERACIONAIS (Arquivos invisíveis do sistema)
+# 💻 SISTEMAS OPERACIONAIS & FERRAMENTAS
 # =============================================================================
+.vscode/
 .DS_Store
 ._*
 Thumbs.db
