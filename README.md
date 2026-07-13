@@ -25,8 +25,8 @@ fn main() {
 
 
     let validado = vd::validador_doc::cpf(cpf.as_str());
-    //let validado = vd::validador::cnpj(cnpj.as_str()); // ou CNPJ
-    //let validado = vd::validador::rg(rg.as_str()); // ou RG
+    //let validado = vd::validador_doc::cnpj(cnpj.as_str()); // ou CNPJ
+    //let validado = vd::validador_doc::rg(rg.as_str()); // ou RG
 
     if validado {
         println!("O CPF é valido");
