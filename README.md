@@ -24,7 +24,7 @@ fn main() {
     }
 
 
-    let validado = vd::validador::cpf(cpf.as_str());
+    let validado = vd::validador_doc::cpf(cpf.as_str());
     //let validado = vd::validador::cnpj(cnpj.as_str()); // ou CNPJ
     //let validado = vd::validador::rg(rg.as_str()); // ou RG
 

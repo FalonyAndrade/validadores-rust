@@ -1,4 +1,4 @@
-pub mod validadores {
+pub mod validador_doc {
     pub fn cpf(cpf: &str) -> bool {
         let cpf: Vec<u8> = cpf
             .chars()
@@ -28,35 +28,36 @@ pub mod validadores {
         primeiro_digito == cpf[9] && segundo_digito == cpf[10]
     }
 
-   pub fn cnpj(cnpj_texto: &str) -> bool {
-    let vec: Vec<u8> = cnpj_texto
-        .chars()
-        .filter_map(|c| c.to_digit(10))
-        .map(|d| d as u8)
-        .collect();
+    pub fn cnpj(cnpj_texto: &str) -> bool {
+        let vec: Vec<u8> = cnpj_texto
+            .chars()
+            .filter_map(|c| c.to_digit(10))
+            .map(|d| d as u8)
+            .collect();
 
-    if vec.len() != 14 || vec.iter().all(|&d| d == vec[0]) {
-        return false;
-    }
-
-    let digito_validado = |tamanho_analisado: usize| -> bool {
-        let mut soma = 0;
-        
-        let mut peso = tamanho_analisado - 7;
-
-        for &num in vec.iter().take(tamanho_analisado) {
-            soma += num as usize * peso;
-            peso = if peso == 2 { 9 } else { peso - 1 };
+        if vec.len() != 14 || vec.iter().all(|&d| d == vec[0]) {
+            return false;
         }
 
-        let resto = soma % 11;
-        let digito_calculado = if resto < 2 { 0 } else { 11 - resto };
+        let digito_validado = |tamanho_analisado: usize| -> bool {
+            let mut soma = 0;
+            
+            let mut peso = tamanho_analisado - 7;
 
-        digito_calculado == vec[tamanho_analisado] as usize
-    };
+            for &num in vec.iter().take(tamanho_analisado) {
+                soma += num as usize * peso;
+                peso = if peso == 2 { 9 } else { peso - 1 };
+            }
 
-    digito_validado(12) && digito_validado(13)
-}
+            let resto = soma % 11;
+            let digito_calculado = if resto < 2 { 0 } else { 11 - resto };
+
+            digito_calculado == vec[tamanho_analisado] as usize
+        };
+
+        digito_validado(12) && digito_validado(13)
+
+    }
 
     pub fn rg(rg_texto: &str) -> bool {
         let mut digitos: Vec<char> = rg_texto
@@ -98,6 +99,7 @@ pub mod validadores {
         };
 
         digito_verificador_real == digito_esperado
+
     }
 
 }
